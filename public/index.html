@@ -26,7 +26,7 @@
     -->
     <title>React App</title>
   </head>
-  <body>
+  <body style="background-color: #272B30">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--
@@ -39,5 +39,66 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+  <style>
+    * {
+      transition: ease 200ms;
+    }
+
+    .card-header:first-child {
+      padding: 16px 25px;
+    }
+
+    .fix-margins {
+      margin-top: 40px;
+      margin-bottom: 80px;
+    }
+
+    .spin {
+      transform: skewX(90deg);
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+
+    .disappear {
+      display: none;
+    }
+
+    .max-width-1000 {
+      max-width: 1000px;
+    }
+
+    .max-width-1000 .modal-content {
+      background-color: #212529!important;
+      color: white!important;
+    }
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+    .sort {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .sort:active {
+      background: #191d20!important
+    }
+
+    ::placeholder {
+      font-weight: 600!important;
+    }
+
+  </style>
   </body>
 </html>
