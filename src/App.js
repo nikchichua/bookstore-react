@@ -9,8 +9,12 @@ import {Route, Switch} from "react-router-dom";
 import UserList from "./components/pages/UserList";
 import Register from "./components/pages/Register";
 import Login from "./components/pages/Login";
+import {useSelector} from "react-redux";
+import {Redirect} from "react-router";
 
 const App = () => {
+    const loggedIn = useSelector(state => state.auth.isLoggedIn);
+
     return (
         <>
             <NavBar/>
@@ -18,24 +22,37 @@ const App = () => {
                 <Row>
                     <Col lg={12}>
                         <Switch>
-                            <Route exact path="/">
-                                <Welcome/>
-                            </Route>
-                            <Route exact path="/add">
-                                <AddBook title='Add Book'/>
-                            </Route>
-                            <Route exact path="/booklist">
-                                <BookList/>
-                            </Route>
-                            <Route exact path="/userlist">
-                                <UserList/>
-                            </Route>
-                            <Route exact path="/register">
-                                <Register/>
-                            </Route>
-                            <Route exact path="/login">
-                                <Login/>
-                            </Route>
+                            {
+                                loggedIn ?
+                                    <>
+                                        <Route exact path="/home">
+                                            <Welcome/>
+                                        </Route>
+                                        <Route exact path="/">
+                                            <Redirect to='home'/>
+                                        </Route>
+                                        <Route exact path="/add">
+                                            <AddBook title='Add Book'/>
+                                        </Route>
+                                        <Route exact path="/booklist">
+                                            <BookList/>
+                                        </Route>
+                                        <Route exact path="/userlist">
+                                            <UserList/>
+                                        </Route>
+                                    </> :
+                                    <>
+                                        <Route exact path="/home">
+                                            <Redirect to='/'/>
+                                        </Route>
+                                        <Route exact path="/">
+                                            <Login/>
+                                        </Route>
+                                        <Route exact path="/register">
+                                            <Register/>
+                                        </Route>
+                                    </>
+                            }
                         </Switch>
                     </Col>
                 </Row>

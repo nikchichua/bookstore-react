@@ -126,7 +126,7 @@ const BookList = () => {
     useEffect(() => {
         let getRequest;
         if (searchValue === '%5c') {
-            getRequest = `http://localhost:8080/books/?&` +
+            getRequest = `http://localhost:9999/books/?&` +
                 `page=${pageNumber - 1}&size=${booksEachPage}&` +
                 `sortBy=${sortBy}&sortDirection=${sortDirection}`;
         } else {
