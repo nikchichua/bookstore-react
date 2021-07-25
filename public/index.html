@@ -1,104 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta
+          name="description"
+          content="Web site created using create-react-app"
+  />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <!--
+    manifest.json provides metadata used when your web app is installed on a
+    user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+  -->
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <!--
+    Notice the use of %PUBLIC_URL% in the tags above.
+    It will be replaced with the URL of the `public` folder during the build.
+    Only files inside the `public` folder can be referenced from the HTML.
+    Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+    work correctly both with client-side routing and a non-root public URL.
+    Learn how to configure a non-root public URL by running `npm run build`.
+  -->
+  <title>React App</title>
+</head>
+<body style="background-color: #272B30">
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root"></div>
+<!--
+  This HTML file is a template.
+  If you open it directly in the browser, you will see an empty page.
+  You can add webfonts, meta tags, or analytics to this file.
+  The build step will place the bundled scripts into the <body> tag.
+  To begin the development, run `npm start` or `yarn start`.
+  To create a production bundle, use `npm run build` or `yarn build`.
+-->
+<style>
+  * {
+    transition: ease 200ms;
+  }
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body style="background-color: #272B30">
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+  .card-header:first-child {
+    padding: 16px 25px;
+  }
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+  .fix-margins {
+    margin-top: 40px;
+    margin-bottom: 80px;
+  }
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  <style>
-    * {
-      transition: ease 200ms;
-    }
+  .spin {
+    transform: skewX(90deg);
+  }
 
-    .card-header:first-child {
-      padding: 16px 25px;
-    }
+  .fade-out {
+    opacity: 0;
+  }
 
-    .fix-margins {
-      margin-top: 40px;
-      margin-bottom: 80px;
-    }
+  .disappear {
+    display: none;
+  }
 
-    .spin {
-      transform: skewX(90deg);
-    }
+  .max-width-1000 {
+    max-width: 1000px;
+  }
 
-    .fade-out {
-      opacity: 0;
-    }
+  .max-width-1000 .modal-content {
+    background-color: #212529!important;
+    color: white!important;
+  }
 
-    .disappear {
-      display: none;
-    }
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 
-    .max-width-1000 {
-      max-width: 1000px;
-    }
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
+  }
 
-    .max-width-1000 .modal-content {
-      background-color: #212529!important;
-      color: white!important;
-    }
+  .sort {
+    cursor: pointer;
+    user-select: none;
+  }
 
-    /* Chrome, Safari, Edge, Opera */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
+  .sort:active {
+    background: #191d20!important
+  }
 
-    /* Firefox */
-    input[type=number] {
-      -moz-appearance: textfield;
-    }
+  ::placeholder {
+    font-weight: 600!important;
+  }
 
-    .sort {
-      cursor: pointer;
-      user-select: none;
-    }
+  .custom-input-body {
+    display: flex;
+    padding-top: 30px;
+    flex-direction: column;
+    width: 80%;
+    gap: 20px;
+    align-self: center;
+    justify-content: center;
+    min-height: 150px
+  }
 
-    .sort:active {
-      background: #191d20!important
-    }
+  .custom-input {
+    height: 40px;
+    font-size: 20px;
+  }
 
-    ::placeholder {
-      font-weight: 600!important;
-    }
+  .prepend {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cdd3d9;
+    border-bottom-left-radius: 0.25rem;
+    border-top-left-radius: 0.25rem;
+    width: 50px;
+    color: #212529;
+  }
 
-  </style>
-  </body>
+  .login-help {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .link {
+    color: white;
+    text-decoration: none;
+  }
+
+  .link:focus {
+    color: #0d6dfb;
+  }
+
+  .two-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  ::-ms-reveal {
+    filter: invert(100%);
+  }
+
+</style>
+</body>
 </html>
