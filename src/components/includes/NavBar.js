@@ -2,15 +2,12 @@ import { Navbar, Container, Nav, Button} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBook} from "@fortawesome/free-solid-svg-icons/faBook";
-import {faBookReader} from "@fortawesome/free-solid-svg-icons/faBookReader";
-import {faSwatchbook} from "@fortawesome/free-solid-svg-icons/faSwatchbook";
-import {faLock, faUserFriends} from "@fortawesome/free-solid-svg-icons";
+import {faLock} from "@fortawesome/free-solid-svg-icons";
 import {faEdit} from "@fortawesome/free-solid-svg-icons/faEdit";
 import {faUserPlus} from "@fortawesome/free-solid-svg-icons/faUserPlus";
 import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../services";
 import {useHistory} from "react-router";
-
 
 const NavBar = () => {
     const loggedIn = useSelector(state => state.auth.isLoggedIn);
